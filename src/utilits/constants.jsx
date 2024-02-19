@@ -1,4 +1,4 @@
-export const baseUrl = "http://localhost:8000";
+export const baseUrl = "13.53.40.228";
 export const register = "/api/signup";
 export const login = "/api/login";
 export const refresh = "/api/refresh";
