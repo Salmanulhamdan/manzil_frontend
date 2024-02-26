@@ -1,4 +1,5 @@
-export const baseUrl = "https://backend.manzil.fun";
+// export const baseUrl = "https://backend.manzil.fun";
+export const baseUrl = "http://localhost:8000";
 export const register = "/api/signup";
 export const login = "/api/login";
 export const refresh = "/api/refresh";
