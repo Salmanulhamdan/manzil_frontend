@@ -88,8 +88,8 @@ const MessageApp = () => {
       const room_id = data.id
       const accessToken = t;
       const websocketProtocol = window.location.protocol === "https:" ? "wss://" : "ws://";
-      // const wsUrl = `${websocketProtocol}127.0.0.1:8000/ws/chat/${room_id}/?token=${accessToken}`;
-      const wsUrl = `${websocketProtocol}backend.manzil.fun/ws/chat/${room_id}/?token=${accessToken}`;
+      const wsUrl = `${websocketProtocol}127.0.0.1:8000/ws/chat/${room_id}/?token=${accessToken}`;
+      // const wsUrl = `${websocketProtocol}backend.manzil.fun/ws/chat/${room_id}/?token=${accessToken}`;
 
 
       const newChatWs = new WebSocket(wsUrl);

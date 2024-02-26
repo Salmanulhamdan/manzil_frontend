@@ -38,8 +38,8 @@ function SideBar({username,onToggleComponent}){
       console.log("notification websocket calling")
       const websocketProtocol =
         window.location.protocol === "https:" ? "wss://" : "ws://";
-      // const socket = new WebSocket(`${websocketProtocol}//127.0.0.1:8000/ws/notification/?token=${token}`);
-      const socket = new WebSocket(`${websocketProtocol}backend.manzil.fun/ws/notification/?token=${token}`);
+      const socket = new WebSocket(`${websocketProtocol}//127.0.0.1:8000/ws/notification/?token=${token}`);
+      // const socket = new WebSocket(`${websocketProtocol}backend.manzil.fun/ws/notification/?token=${token}`);
     
       console.log(socket,"notification socket")
 
