@@ -25,7 +25,10 @@ const loginUser = async (credentials) => {
       localStorage.setItem('refreshjwtToken', response.data.refresh);
       navigate('/homepage', { state: response.data  });
     } catch (error) {
-      console.error(error);
+      if (error) {
+        // Unauthorized error
+        alert('Invalid credentials. Please try again.');
+      } 
     }
   };
 
