@@ -62,53 +62,46 @@ const NotificationModal = ({ isVisible, onClose, notification, removeNotificatio
     }
 
   return (
-    <div
-      className="z-20 fixed inset-0  backdrop-blur-sm flex justify-center items-center"
-      id="wrapper"
-      onClick={handleClose}
-     
+<div
+  className="z-10 fixed inset-8  flex justify-start items-start mt-40"
+  id="wrapper"
+  onClick={handleClose}
+>
+  <div className="m-2 max-w-sm w-72 z-10 backdrop-filter backdrop-blur flex flex-col bg-white rounded-lg shadow-lg p-4">
+    <button
+      className="text-black text-xl place-self-end p-2"
+      onClick={onClose}
+      style={{ border: '1px solid rgba(209, 90, 90, 0.5)', borderRadius: '5px' }}
     >
-        <div className="m-2 w-full md:w-2/5 flex flex-col">
-            <button className="text-black text-xl place-self-end" onClick={onClose}
-            style={{border:'1px solid  rgba(209, 90, 90, 0.5)'}}
-            >
-            x
-            </button>
-            <div className="bg-white p-10 rounded">
-                <div>
-                    <ul
-                        className="mt-2"
-                        aria-labelledby="dropdownMenuButton1"
-                        
-                        data-te-dropdown-menu-ref
-                    >
-                        {notification && notification?.length > 0 ? (
-                            notification.map((note, index) => (
-                                <li key={note.id} style={{border:'2px solid  rgba(209, 90, 90, 0.5)',borderRadius:'5px',marginBottom:'5px'}}>
-                                    <p
-                                        className="block w-full whitespace-nowrap  px-4 py-2 text-sm public hover:bg-neutral-100 active:no-underline cursor-pointer"
-                                        onClick={() => onNotificationClick(note.id, note.from_user.id, note.notification_type, note.post?.id )}
-                                        data-te-dropdown-item-ref
-                                    
-                                    >
-                                        {note.notification_type === "blocked"
-                                            ? "Admin blocked you post"
-                                            : `${note.from_user} ${getNotificationMessage(note)}`}
-                                    </p>
-                                </li>
-                            ))
-                        ) : (
-                                <li>
-                                    <p className="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm public hover:bg-neutral-100 active:no-underline"
-                                    >No notifications</p>
-                                </li>
-                            )}
-                    </ul>
-
-                </div>
-            </div>
-        </div>
+      x
+    </button>
+    <div className="bg-white p-4 rounded">
+      <div>
+        <ul className="mt-2">
+          {notification && notification?.length > 0 ? (
+            notification.map((note, index) => (
+              <li key={note.id} className="border-b-2 border-gray-200 mb-2 last:mb-0">
+                <p
+                  className="block w-full whitespace-nowrap px-4 py-2 text-sm hover:bg-gray-100 cursor-pointer"
+                  onClick={() => onNotificationClick(note.id, note.from_user.id, note.notification_type, note.post?.id)}
+                >
+                  {note.notification_type === 'blocked'
+                    ? 'Admin blocked your post'
+                    : `${note.from_user} ${getNotificationMessage(note)}`}
+                </p>
+              </li>
+            ))
+          ) : (
+            <li>
+              <p className="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm">No notifications</p>
+            </li>
+          )}
+        </ul>
+      </div>
     </div>
+  </div>
+</div>
+
   )
 }
 
