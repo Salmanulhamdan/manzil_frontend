@@ -1,5 +1,5 @@
 import React, { useEffect, useState ,useRef} from 'react';
-import { baseUrl ,myprofile,savedPosts,likedPost} from '../../utilits/constants';
+import { baseUrl ,myprofile,savedPosts,likedPost, userprofile} from '../../utilits/constants';
 import 'tailwindcss/tailwind.css';
 import Navbar from '../../Components/navbar/navbar';
 import Posts from '../../Components/posts/posts';
@@ -9,7 +9,7 @@ import UserupdateModal from '../../Components/modals/profileEditmodal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faGear,faBookmark, faThumbsUp, faUserEdit} from '@fortawesome/free-solid-svg-icons';
 
-
+import PlanDetailsModal from '../../Components/modals/planDetailsmodal';
 
 
 const MyProfile = () => {
@@ -114,23 +114,37 @@ const MyProfile = () => {
   };
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => {
-    console.log("working")
+    setTrigger(true);
     setIsModalOpen(true);
 
   };
 
   const closeModal = () => {
+    setTrigger(false);
     setIsModalOpen(false);
   };
 
+const[isdetailModalOpen,setisdetailModalOpen]=useState(false);
+
+const opendetailsModal = () => {
+  console.log("working")
+  setisdetailModalOpen(true);
+
+};
+
+const closedetailsModal = () => {
+  setisdetailModalOpen(false);
+};
 
   const [isExpanded, setExpanded] = useState(false);
 
   const toggleMenu = () => {
     setExpanded(!isExpanded);
   };
-
-   
+const [plantriger,setPlantriger]=useState(false)
+  const triggering=()=>{
+    setPlantriger(true)
+  } 
 
   useEffect(() => {
 
@@ -142,8 +156,8 @@ const MyProfile = () => {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data,"kkkk")
         setUserProfile(data);
+        console.log(data,"daaattttttttttaaaa");
       })
       .catch(error => console.error('Error fetching user profile:', error));
       const fetchuserData =async () =>{
@@ -198,7 +212,7 @@ const MyProfile = () => {
       }
 
 
-  }, [iseditModalOpen,updateUI,trigger,isModalOpen]); 
+  }, [iseditModalOpen,updateUI,trigger,isModalOpen,plantriger]); 
 
   
 
@@ -272,14 +286,14 @@ const MyProfile = () => {
           {userProfile && (
             <button
               className="bg-blue-500 text-white px-4 py-2 rounded-md"
-              onClick={openModal}
-              disabled={userProfile.upgraded}
+              onClick={userProfile.upgraded ?  opendetailsModal: openModal}
+              
             >
               {userProfile.upgraded ? 'Upgraded' : 'Upgrade Profile'}
             </button>
           )}
-
-          <PlanModal isOpen={isModalOpen} closeModal={closeModal} />
+          <PlanDetailsModal isOpen={isdetailModalOpen} closeModal={closedetailsModal}/>
+          <PlanModal isOpen={isModalOpen} closeModal={closeModal} trigger={triggering}/>
 
           <p className="text-gray-600 mt-2">
             <span className="mr-2"> {userProfile?  userProfile.profession_name:""}</span>

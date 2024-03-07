@@ -14,7 +14,7 @@ function AdminLogin(){
         useEffect(()=>{
             const isLoggedIn = localStorage.getItem('jwtTokenAdmin');
             if (isLoggedIn) {
-                navigate('/admin/admindash');  // Redirect to the homepage
+                navigate('/admin/chart');  // Redirect to the homepage
             }
             },[])
         const navigate = useNavigate()
@@ -29,7 +29,7 @@ function AdminLogin(){
                localStorage.setItem('refreshjwtTokenAdmin', response.data.refresh);
 
                console.log("saved succesfully")
-               navigate('/admin/admindash');
+               navigate('/admin/chart');
             } 
             else{
                 alert("Not a superuser")

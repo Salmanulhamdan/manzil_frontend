@@ -27,6 +27,7 @@ export const myquestions="/api/questions/get_myqustions"
 export const answers="/api/answers/"
 export const report="/api/reports/report_item/"
 export const confirm_intrest="/api/intrests/confirm_intrest/"
+export const barchart="/api/plan-chart-data/"
 
 
 

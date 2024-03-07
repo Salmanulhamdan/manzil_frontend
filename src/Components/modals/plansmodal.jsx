@@ -5,9 +5,10 @@ import  {  useState ,useEffect} from 'react';
 import { loadRazorpayScript,createRazorpayOrder } from '../../utilits/razorpay';
 import axios from 'axios';
 import { baseUrl,userupgrade ,planss} from '../../utilits/constants';
-const PlanModal = ({ isOpen, closeModal, }) => {
+const PlanModal = ({ isOpen, closeModal,trigger }) => {
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [Plans, setPlans] = useState([]);
+
   useEffect(() => {
   
   const fetchData = async () => {
@@ -21,7 +22,7 @@ const PlanModal = ({ isOpen, closeModal, }) => {
     }
   };
   fetchData();
-}, []); 
+}, [trigger]); 
 
 
   const handleContinue = async () => {
@@ -62,12 +63,14 @@ const PlanModal = ({ isOpen, closeModal, }) => {
               formData.append('plan', planId);
 
               const upgradeResponse = await axios.post(`${baseUrl}${userupgrade}`, formData, config);
-              console.log('Upgrade response:', upgradeResponse);
+              trigger()
+          
+   
             } catch (error) {
               console.error('Error upgrading user:', error);
             }
           
-           console.log(response)
+
   
             
          
@@ -80,11 +83,12 @@ const PlanModal = ({ isOpen, closeModal, }) => {
   
         const razorpay = new window.Razorpay(options);
         razorpay.open();
+        
       } catch (error) {
         console.error('Error handling Razorpay payment:', error);
       }
    
-      console.log("Selected Plan ID:", selectedPlan);
+
     }
     closeModal();
   };

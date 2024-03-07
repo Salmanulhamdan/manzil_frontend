@@ -30,12 +30,10 @@ function AdminDash(){
             console.log('Response:', response.data);
       
             setUsers(response.data);
-            console.log(response.data,"ddddddddddddddddddddddddddddddddddddddd");
           } catch (error) {
             console.error('Error:', error);
       
             if (error.response && error.response.status === 401) {
-              console.log('Handling 401...');
               try {
                 const refreshResponse = await axios.post(baseUrl + refresh, {
                   refresh: localStorage.getItem('refreshjwtTokenAdmin'),
