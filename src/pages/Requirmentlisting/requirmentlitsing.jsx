@@ -118,7 +118,7 @@ const closequstionModal =() =>{
   const fetchData = async () => {
     try {
       const token = localStorage.getItem('jwtToken');
-      console.log('Token:', token);
+      
 
       const config = {
         headers: {
@@ -126,9 +126,9 @@ const closequstionModal =() =>{
         },
       };
 
-      console.log('Making request...new');
+     
       const response = await axios.get(baseUrl + requirements, config);
-      console.log(response.data,"requ");
+      
       setRequirmentlist(response.data)
     } catch (error) {
       console.error('Error:', error);

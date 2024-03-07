@@ -9,7 +9,7 @@ const PlanDetailsModal = ({ isOpen, closeModal, }) => {
   useEffect(() => {
   
   const fetchData = async () => {
-    console.log("icanteeee");
+    
     try {
       const token = localStorage.getItem('jwtToken');
       const config = {
@@ -20,7 +20,7 @@ const PlanDetailsModal = ({ isOpen, closeModal, }) => {
     
       const planresponse =  await axios.get(`${baseUrl}${userupgrade}`, config);
       setPlans(planresponse.data)
-      console.log(planresponse.data,"kkkkuyun")
+      
     } catch (error) {
       // Handle errors...
       console.error('Error fetching user data:', error);

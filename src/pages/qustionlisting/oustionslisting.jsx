@@ -74,7 +74,7 @@ const closeAnswerModal = (questionId) => {
   const fetchData = async () => {
     try {
       const token = localStorage.getItem('jwtToken');
-      console.log('Token:', token);
+     
 
       const config = {
         headers: {

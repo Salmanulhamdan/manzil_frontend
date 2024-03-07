@@ -45,7 +45,7 @@ const ProfessionalSignup = () => {
       profession,    
       experience,
     }).then((response)=>{
-      console.log('response' , response);
+      
       navigate('/login');
      
     })

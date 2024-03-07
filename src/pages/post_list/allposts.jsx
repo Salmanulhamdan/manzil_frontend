@@ -68,7 +68,7 @@ const closereportmodal =()=>{
       const formData = new FormData();
       formData.append('post', postId);
      
-      console.log("like clicked")
+      
       const response = await axios.post(`${baseUrl}${like}`,formData, config);
       if (response.status === 201 || 200) {
         // If the like was successful, update the like state for the specific post
@@ -90,7 +90,7 @@ const closereportmodal =()=>{
   const [saves, setSaves] = useState({})
   const handlesave = async (postId) => {
   const token = localStorage.getItem('jwtToken');
-  console.log('Token:', token);
+ 
   
   const config = {
       headers: {
@@ -100,7 +100,7 @@ const closereportmodal =()=>{
     try {
       const formData = new FormData();
       formData.append('post', postId);
-      console.log("like clicked")
+    
       const response = await axios.post(`${baseUrl}${save}`,formData, config);
       if (response.status === 201 || 200) {
         // If the like was successful, update the like state
@@ -130,7 +130,7 @@ const closereportmodal =()=>{
   const fetchData = async () => {
     try {
       const token = localStorage.getItem('jwtToken');
-      console.log('Token:', token);
+      
 
       const config = {
         headers: {
@@ -140,7 +140,7 @@ const closereportmodal =()=>{
 
       console.log('Making request...new');
       const response = await axios.get(baseUrl + post, config);
-      console.log(response.data,"response");
+      // console.log(response.data,"response");
       setPostslist(response.data)
     } catch (error) {
       console.error('Error:', error);

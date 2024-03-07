@@ -19,11 +19,11 @@ const AnswerModal = ({ question_id, question,isOpen, onClose }) => {
     try {
       const token = localStorage.getItem('jwtToken');
       const formData = new FormData();
-      console.log(question_id);
+      
       formData.append('qustion',question_id)
       formData.append('answer', answer);
    
-      console.log(formData,"formvvvvvdata")
+      
 
       const response = await axios.post(baseUrl+ answers, formData, {
         headers: {
@@ -35,7 +35,7 @@ const AnswerModal = ({ question_id, question,isOpen, onClose }) => {
 
       if (response.status) {
         // Handle successful post creation, e.g., show a success message, redirect, etc.
-        console.log(response.data,'answer created successfully!');
+        
         Swal.fire("Created!", "Your answerhas been Created.", "success");
         setTrigger(true)
       } else {

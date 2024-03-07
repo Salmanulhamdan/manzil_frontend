@@ -9,14 +9,14 @@ const ContactListAPI = async () => {
             Authorization: `Bearer ${accessToken}`,
         },
       });
-      console.log(response,'contacts')
+      
       if  (response.status === 200) {
         
           return response.data;
       } else {
           console.log(response.error)
       }
-      console.log(response.data);
+     
     } catch (error) {
       console.error(error);
     }

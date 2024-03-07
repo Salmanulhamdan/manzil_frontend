@@ -14,14 +14,14 @@ const NotificationModal = ({ isVisible, onClose, notification, removeNotificatio
     if( !isVisible ) return null;
 
     const handleClose = (e) =>{
-        console.log("jjjdfresde");
+       
         onClose();
     }
 
    
 
     const getNotificationMessage = (notification) => {
-        console.log(notification,"notifiacccccto");
+        
         // const { notification_type, post, comment } = notification;
       
         if (notification) {

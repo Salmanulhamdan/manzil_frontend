@@ -59,7 +59,7 @@ const handleBlockItem = async (reportedItemId,reportType) =>{
 
         if (result.isConfirmed) {
           const token = localStorage.getItem('jwtTokenAdmin');
-          console.log('Token:', token);
+         
 
         const response = await axios.post(`${baseUrl}/api/delete_reports/`, { reported_item_id: reportedItemId, report_type: reportType },
         { headers: { Authorization: `Token ${token}` } }
@@ -82,7 +82,7 @@ const handleBlockItem = async (reportedItemId,reportType) =>{
     const fetchData = async () => {
         try {
           const token = localStorage.getItem('jwtTokenAdmin');
-          console.log('Token:', token);
+         
     
           const config = {
             headers: {

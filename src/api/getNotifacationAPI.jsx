@@ -14,8 +14,7 @@ const getNotificationsApi = async () => {
           },
         });
         if  (response.status === 200) {
-          console.log("llllllllllllllllllllll");
-          console.log(response,"notificatio1234");
+          
             return response.data;
         } else {
             console.log(response.error)

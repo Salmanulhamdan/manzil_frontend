@@ -5,7 +5,7 @@ import { baseUrl,updateprofile } from '../../utilits/constants';
 import Swal from "sweetalert2";
 
 const UserupdateModal = ({ isOpen, closeModal,profile }) => {  
-  console.log(profile,"ooo")
+  
   const [username, setUsername] = useState(profile?.user?.username ?? 'DefaultUsername');
   const [email, setEmail] = useState(profile?.user?.email ?? 'DefaultEmail');
   const [place, setPlace] = useState(profile?.place ?? 'DefaultPlace');
