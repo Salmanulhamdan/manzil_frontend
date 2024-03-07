@@ -5,7 +5,7 @@ import UserDetail from "../pages/admin_side/user_detail";
 import PlanList from "../pages/admin_side/plans";
 import { PrivateRoutesAdmin } from './privateroute';
 import Repotpage from "../pages/admin_side/report_mngmnt";
-
+import Example from "../pages/admin_side/admin_home";
 
 function AdminRouter(){
     
@@ -23,6 +23,7 @@ function AdminRouter(){
            <Route path='/admin_user/:userEmail' element={<UserDetail/>}/>
            <Route path='/plans' element={<PlanList/>}/>
            <Route path='/report' element={<Repotpage/>}/>
+           <Route path='/chart' element={<Example/>}/>
 
            </Route>
            
