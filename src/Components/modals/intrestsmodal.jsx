@@ -8,12 +8,12 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 const IntrestsModal = ({  requirment, requirment_id, isOpen, onClose }) => {
 
-  console.log(requirment_id, "dd");
+  
 
   const [intrestlist, setIntrestlist] = useState([]);
   const [trigger,setTrigger]=useState(false)
 
-  console.log(intrestlist, "nnnnnnnnnnnnnnnnnn");
+  
 
 
   const handleConfirm = async (intrestId) => {
@@ -67,7 +67,7 @@ const IntrestsModal = ({  requirment, requirment_id, isOpen, onClose }) => {
             },
 
           });
-          console.log("intrests", response.data);
+          
           setIntrestlist(response.data)
         }
 

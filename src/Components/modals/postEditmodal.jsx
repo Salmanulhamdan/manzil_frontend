@@ -26,7 +26,7 @@ const PosteditModal = ({ isOpen, closeModal , post,setUpdateUI}) => {
 
       formData.append('caption', caption);
       formData.append('hashtag', hashtag);
-      console.log(formData)
+     
 
       const response = await axios.patch(`${baseUrl}/api/edit-post/${post.id}/`, formData, {
         headers: {
@@ -38,7 +38,7 @@ const PosteditModal = ({ isOpen, closeModal , post,setUpdateUI}) => {
 
       if (response.status) {
         // Handle successful post creation, e.g., show a success message, redirect, etc.
-        console.log('Post updated successfully!');
+       
         setUpdateUI(prev => !prev)
         Swal.fire("Updated!", "Your post has been Updated.", "success");
       } else {

@@ -12,7 +12,7 @@ const FollowUnfollowApi = async (userId, fetchData) => {
             },
         });
         if (response.status === 200 || 201) {
-            console.log('follow/unfollow is working');
+            
             if (fetchData) {
                 fetchData();
             }
@@ -20,7 +20,7 @@ const FollowUnfollowApi = async (userId, fetchData) => {
             
         } else {
             console.log(response.error);
-            console.log('unfollow is working');
+            
         }
 
     } catch (error) {

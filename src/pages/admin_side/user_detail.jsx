@@ -20,7 +20,7 @@ function UserDetail(props){
 
    console.log(userblocked,"user blocked or not")
     const token = localStorage.getItem('jwtTokenAdmin');
-    console.log(token)
+   
 
     // Include the token in the Authorization header
     const config = {
@@ -38,7 +38,7 @@ function UserDetail(props){
       const fetchData = async () => {
         try {
           const token = localStorage.getItem('jwtTokenAdmin');
-          console.log('Tokenddzzz:', token);
+        
     
           const config = {
             headers: {

@@ -16,7 +16,7 @@ function AdminDash(){
         const fetchData = async () => {
           try {
             const token = localStorage.getItem('jwtTokenAdmin');
-            console.log('Token:', token);
+            
       
             const config = {
               headers: {
@@ -24,10 +24,10 @@ function AdminDash(){
               },
             };
       
-            console.log('Making request...');
+            
             const response = await axios.get(baseUrl+registeredUsers,config)
 
-            console.log('Response:', response.data);
+           
       
             setUsers(response.data);
           } catch (error) {

@@ -43,7 +43,7 @@ const HouseownerSignUpForm = () => {
       place,
       password,
     }).then((response)=>{
-      console.log('response' , response);
+      
       navigate('/login');
      
     })

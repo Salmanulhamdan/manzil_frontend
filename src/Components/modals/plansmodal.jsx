@@ -15,7 +15,7 @@ const PlanModal = ({ isOpen, closeModal,trigger }) => {
     try {
       const planresponse = await axios.get(baseUrl+planss);
       setPlans(planresponse.data)
-      console.log(planresponse.data)
+      
     } catch (error) {
       // Handle errors...
       console.error('Error fetching user data:', error);
@@ -50,7 +50,7 @@ const PlanModal = ({ isOpen, closeModal,trigger }) => {
             console.log('Payment successful:', response);
             
             const token = localStorage.getItem('jwtToken');
-            console.log('Token:', token);
+            
           
             const config = {
               headers: {

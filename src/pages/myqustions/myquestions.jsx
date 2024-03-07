@@ -120,7 +120,7 @@ const handleDeleteQuestion = async (qustionId) => {
   const fetchData = async () => {
     try {
       const token = localStorage.getItem('jwtToken');
-      console.log('Token:', token);
+      
 
       const config = {
         headers: {
@@ -128,9 +128,9 @@ const handleDeleteQuestion = async (qustionId) => {
         },
       };
 
-      console.log('Making request...new');
+     
       const response = await axios.get(baseUrl + myquestions, config);
-      console.log(response.data,"kk")
+      
       setQustionlist(response.data)
     } catch (error) {
       console.error('Error:', error);

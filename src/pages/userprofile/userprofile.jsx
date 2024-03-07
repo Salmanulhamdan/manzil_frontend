@@ -45,13 +45,13 @@ const UserProfile = () => {
         
         const statusresponse = await axios.get(`${baseUrl}/api/userprofile-status/`, config);
         setUserProfilesatus(statusresponse.data)
-        console.log(statusresponse.data,"statusresponse");
+       
         const response = await axios.get(`${baseUrl}${userprofile}/${userId}`, config);
         setUserProfile(response.data);
-        console.log(response.data,"yyyy")
+      
         const postresponse = await axios.get(`${baseUrl}/api/posts/${response.data.user.id}/get_user_posts_by_id/`, config);  
         setUserPosts(postresponse.data);
-        console.log(postresponse.data,"llll")
+        
       } catch (error) {
         // Handle errors...
         console.error('Error fetching user datassss:', error);

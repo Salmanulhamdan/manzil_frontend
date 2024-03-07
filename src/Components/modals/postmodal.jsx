@@ -17,7 +17,7 @@ const CreateModal = ({ isOpen, onClose }) => {
       formData.append('media', media);
       formData.append('caption', caption);
       formData.append('hashtag', hashtag);
-      console.log(formData)
+      
 
       const response = await axios.post(baseUrl+createpost, formData, {
         headers: {

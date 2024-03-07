@@ -73,7 +73,7 @@ function MyrequirmentListing() {
   const [saves, setSaves] = useState({})
   const handlesave = async (postId) => {
     const token = localStorage.getItem('jwtToken');
-    console.log('Token:', token);
+    
 
     const config = {
       headers: {
@@ -102,7 +102,7 @@ function MyrequirmentListing() {
   const fetchData = async () => {
     try {
       const token = localStorage.getItem('jwtToken');
-      console.log('Token:', token);
+   
 
       const config = {
         headers: {

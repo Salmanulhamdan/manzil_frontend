@@ -65,7 +65,7 @@ const MyProfile = () => {
   
  const fetchsavedposts = async ()=>{
   const token = localStorage.getItem('jwtToken');
-  console.log('Tokenzzz:', token);
+ 
 
   const config = {
     headers: {
@@ -73,7 +73,7 @@ const MyProfile = () => {
     },
   };
   const savedpostsresponse = await axios.get(baseUrl+savedPosts,config)
-  console.log(savedposts.data,"kkkoo")
+ 
   setSavedposts(savedpostsresponse.data)
   setLiked(false)
   setSaved(true)
@@ -82,7 +82,7 @@ const MyProfile = () => {
 
  const fetchlikedposts = async ()=>{
   const token = localStorage.getItem('jwtToken');
-  console.log('Tokenzzz:', token);
+ 
 
   const config = {
     headers: {
@@ -90,7 +90,7 @@ const MyProfile = () => {
     },
   };
   const likedpostsresponse = await axios.get(baseUrl+likedPost,config)
-  console.log(savedposts.data,"kkkoo")
+ 
   setLikedposts(likedpostsresponse.data)
   setSaved(false)
   setLiked(true)
@@ -162,7 +162,7 @@ const [plantriger,setPlantriger]=useState(false)
       .catch(error => console.error('Error fetching user profile:', error));
       const fetchuserData =async () =>{
         const token = localStorage.getItem('jwtToken');
-        console.log('Tokenzzz:', token);
+      
   
         const config = {
           headers: {
@@ -176,7 +176,7 @@ const [plantriger,setPlantriger]=useState(false)
     const fetchData = async () => {
       try {
         const token = localStorage.getItem('jwtToken');
-        console.log('Tokenzzz:', token);
+       
   
         const config = {
           headers: {
@@ -189,7 +189,7 @@ const [plantriger,setPlantriger]=useState(false)
         setUserPosts(postresponse.data);
         // setLiked(false)
         // setSaved(false)
-        console.log(postresponse,"llll")
+      
 
       } catch (error) {
         // Handle errors...

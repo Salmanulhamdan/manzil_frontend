@@ -12,7 +12,7 @@ const CreatePlanModal = ({ isOpen, onClose, onCreatePlan }) => {
     // Use the values of name, description, price, and duration
     // You can call the onCreatePlan function and pass the plan details
 
-    console.log('Creating Plan...');
+   
     const newPlan = {
       name,
       description,
