@@ -24,6 +24,7 @@ const MessageApp = () => {
   const t = localStorage.getItem('jwtToken')
   const [users, setusers] = useState(null)
   const navigate = useNavigate()
+  const [link,setLink]=useState([])
 
 
 
@@ -76,11 +77,18 @@ const MessageApp = () => {
       setTrigger(false);
     }
   };
-  // useEffect(() => {
-  //   if (inputMessage) {
-  //     handleSendMessage();
-  //   }
-  // }, [inputMessage]);   this one iam laterusing//
+
+  const handleSendLink=()=>{
+    if (ws && link){
+      ws.send(JSON.stringify({message:link}));
+      setLink("")
+    }
+  }
+  useEffect(() => {
+    if (link) {
+      handleSendLink();
+    }
+  }, [inputMessage,link]);   
 
   const joinChatroom = async (userId) => {
     try {
@@ -144,10 +152,10 @@ const MessageApp = () => {
     });
     if (roomId) {
       const nextPageUrl = `https://www.manzil.fun/provider-videocall/${roomId}`;
-      setInputMessage(nextPageUrl);
-      console.log(inputMessage, "jjjjjjjjjjjj");
-      if(inputMessage) {
-        handleSendMessage();
+      setLink(nextPageUrl);
+     
+      if(link) {
+        handleSendLink();
       } 
       
       navigate(`/provider-videocall/${roomId}`);
@@ -155,9 +163,7 @@ const MessageApp = () => {
     }
   
 
-    // useEffect(() => {
-    //   handleSendMessage();
-    // }, [inputMessage]);
+   
 
 
   };
