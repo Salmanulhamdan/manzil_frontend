@@ -25,6 +25,26 @@ const Dashboard = () => {
       });
   }, []);
 
+  const data1 = [
+    {
+      title: "All",
+      description: "Description for All.",
+    },
+    {
+      title: "Professionals",
+      description: "Description for professionals .",
+    },
+    {
+      title: "Houseowners ",
+      description: "Description for Houseowners .",
+    },
+    {
+      title: "Upgraded",
+      description: "Description for Upgraded .",
+    },
+  ];
+
+
   var data = {
     labels: barchartdata.map((item) => item.month),
     datasets: [{
@@ -45,20 +65,18 @@ const Dashboard = () => {
 
       {/* Main content */}
       <div className="col-span-3 mr-16">
-        {/* <AdminNav /> */}
+         <AdminNav /> 
 
         {/* List items */}
-        {/* <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-12 mr-16">
-          {Array.from({ length: 4 }).map((_, index) => (
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-28 mr-16">
+        {data1.map((item, index) => (
             <div key={index} className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl">
               <div className="p-6">
                 <h5 className="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
-                  Professionals
+                {item.title}
                 </h5>
                 <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
-                  The place is close to Barceloneta Beach and bus stop just 2 min by walk
-                  and near to "Naviglio" where you can enjoy the main night life in
-                  Barcelona.
+                {item.description}
                 </p>
               </div>
               <div className="p-6 pt-0">
@@ -66,7 +84,7 @@ const Dashboard = () => {
               </div>
             </div>
           ))}
-        </div> */}
+        </div>
 
         {/* Bar Chart */}
         <div className="flex flex-row">

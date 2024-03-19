@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import bgimg from "../../assets/3d-render-empty-room.jpg"
 import Navbar from "../../Components/navbar/navbar"
 function LandingPage() {
+
   return (
     <div className="landing-page">
     <Navbar naveitems={'landingpage'}/>

@@ -189,7 +189,7 @@ const closequstionModal =() =>{
       </div>
 
       {requirment.description && (
-        <div className='mb-4 rounded-md'>
+        <div className='mb-4 mt-6 rounded-md'>
           <p>{requirment.description}</p>
         </div>
       )}
