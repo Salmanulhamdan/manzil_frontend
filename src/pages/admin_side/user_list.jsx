@@ -41,38 +41,7 @@ const UserList = ({ users }) => {
       Authorization: `Bearer ${token}`,
     },
   };
-  const handleBlockUser = async (id) => {
-    console.log(id, "kkk");
-    Swal.fire({
-      title: "Are you sure?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        const url = `${baseUrl}${blockuser}/${id}/`;
-        // Send data to indicate the change in is_active status
-        const data = {
-          is_active: !users.is_active,
-        };
-        // Update user status using fetch or axios
-        axios
-          .patch(url, data, config)
-          .then((res) => {
-            console.log("success");
-            setTrigger(true)
-
-            // Handle response if needed
-            console.log(responseData);
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-          });
-      }
-    });
-  };
+  
 
 
   const [selectedTab, setSelectedTab] = useState('all');
@@ -98,7 +67,7 @@ const UserList = ({ users }) => {
   };
   useEffect(() => {
     // This code will run whenever selectedTab changes
-    console.log('Selected tab changed:', selectedTab);
+    
   }, [selectedTab, trigger]);
   const professionals = users.filter(user => user.usertype === 'professional');
   const houseowners = users.filter(user => user.usertype === 'houseowner');

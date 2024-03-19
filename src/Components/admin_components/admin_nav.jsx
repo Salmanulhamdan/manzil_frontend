@@ -10,7 +10,7 @@ function AdminNav() {
 
   const navigate = useNavigate()
 
-  const handleLogout = ()=>{
+  const handleLogout = () => {
     localStorage.removeItem('jwtTokenAdmin');
     localStorage.removeItem("refreshjwtTokenAdmin")
 
@@ -18,17 +18,9 @@ function AdminNav() {
   }
   return (
     <div className='admin_navbar'>
-        <div className="input-group md-form form-sm form-1 pl-0">
-          <div className="input-group-prepend">
-            <span className="input-group-text pink lighten-3" id="basic-text1">
-              <FontAwesomeIcon icon={faSearch} className="text-black" />
-            </span>
-          </div>
-          <input className="form-control my-0 py-1 small-input" type="text" placeholder="Search........." aria-label="Search" />
-        </div>
-      <div className='admin_logout'>
-      
-        <span onClick={handleLogout} className='logout_link'>Log Out</span>
+
+      <div className='fixed top-4 right-8 z-50'>
+        <span onClick={handleLogout} className='text-white bg-red-500 px-3 py-2 rounded cursor-pointer'>Log Out</span>
       </div>
     </div>
   );
